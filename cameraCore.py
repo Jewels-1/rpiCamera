@@ -6,9 +6,9 @@ import RPi.GPIO as GPIO
 from picamera2.previews.qt import QGlPicamera2
 from picamera2 import Picamera2
 
-GPIO.setwarnings(FALSE)
+#GPIO.setwarnings(FALSE)
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
 
@@ -26,6 +26,8 @@ def capture_done(job):
     
 def button_callback(channel):
     print("Taking Picture")
+    cfg = picam2.create_still_configuration()
+    picam2.switch_mode_and_capture_file(cfg, "test1.jpg", signal_function=qpicamera2.signal_done)
     
 GPIO.add_event_detect(10,GPIO.RISING, callback=button_callback)
 
