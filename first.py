@@ -7,4 +7,4 @@ picam2.configure(camera_config)
 picam2.start_preview(Preview.QTGL)
 picam2.start()
 time.sleep(2)
-picam2.capture_file("/home/esskay/Pictures/test.jpg")d
+#picam2.capture_file("/home/esskay/Pictures/test.jpg")d
