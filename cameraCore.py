@@ -18,11 +18,8 @@ picam2.configure(configPreview)
     
 def button_callback(channel):
     print("Taking Picture")
-    today = date.today()
-    nowT =int(time.time())
-    nowT = int(nowT)
-    picName = "capture"+str(today.year)+ str(today.month)+str(today.day)+str(nowT)
-    timestamp = datetime.now().isoformat
+    timestamp = time.strftime("%Y%m%d%H%M%S")
+    picName = "capture"+timestamp
     picam2.switch_mode(configStill)
     picam2.capture_file("/home/pi/Pictures/capture"+picName+".jpg")
     picam2.switch_mode(configPreview)
