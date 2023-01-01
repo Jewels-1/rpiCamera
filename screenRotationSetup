@@ -1,0 +1,16 @@
+sudo nano startup.sh
+
+#!/usr/bin/bash
+xrandr --output DSI-1 --rotate right
+
+#press ctrl-x then enter to save
+
+sudo chmod +x/usr.bin/startup
+
+sudo chrontab -e
+
+#add the following command
+
+@reboot sh /home/user/startup.sh
+
+#press ctrl-x then enter to save
