@@ -12,7 +12,7 @@ GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 picam2 = Picamera2()
 configPreview  = picam2.create_preview_configuration()
-#configStill = picam2.create_still_configuration()
+configStill = picam2.create_still_configuration()
 picam2.configure(configPreview)
 
     
@@ -23,8 +23,9 @@ def button_callback(channel):
     nowT = int(nowT)
     picName = "capture"+str(today.year)+ str(today.month)+str(today.day)+str(nowT)
     timestamp = datetime.now().isoformat
-#    picam2.configure(configStill)
+    picam2.switch_mode(configStill)
     picam2.capture_file("/home/pi/Pictures/capture"+picName+".jpg")
+    picam2.switch_mode(configPreview)
 #    picam2.configure(configPreview)
 
 
